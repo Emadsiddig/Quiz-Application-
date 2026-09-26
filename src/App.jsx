@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import './App.css' 
+import './index.css' 
 import quizQuestions from './questions' 
 
 function App() {
 
   return (
     <>
-
+      
     </>
   )
 }
