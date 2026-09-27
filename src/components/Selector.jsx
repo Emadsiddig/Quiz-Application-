@@ -1,4 +1,4 @@
-import quizQuestions from "../src/questions";
+import quizQuestions from "../questions";
 import "./selector.css";
 
 export default function Selector({ currentStatus = {}, activeId, onSelectQuestion }) {
