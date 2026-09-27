@@ -6,10 +6,10 @@ import './index.css'
 import quizQuestions from './questions' 
 
 function App() {
-
+  const [questionId, setQuestionId] = useState(1)
   return (
     <>
-       <QuestionsRetrieving />
+       <QuestionsRetrieving questionId={questionId}/>
       
     </>
   )
