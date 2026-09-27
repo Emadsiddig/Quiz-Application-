@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import quizQuestions from './questions.js' 
 import './question.css'
+import Button from './Button.jsx'
 
 export function QuestionsRetrieving({questionId,setQuestionId}){
    //The questionId will be from the app, either set by nex and prev or set by the buttons of the questions
@@ -82,25 +83,10 @@ export function QuestionsRetrieving({questionId,setQuestionId}){
    return (
       <>
          {filteredElement}
-              <div className="navigation">
-
-            <button
-               onClick={previousQuestion}
-               disabled={questionId === 1}
-            >
-               Previous
-            </button>
-
-            <button
-               onClick={nextQuestion}
-               disabled={
-                  questionId === quizQuestions.length
-               }
-            >
-               Next
-            </button>
-
-         </div>
+            <div className="navigation-btn">
+            <Button onClick={previousQuestion} disabled = {questionId === 1} text="Prev"/>
+            <Button onClick={nextQuestion} disabled = {questionId === quizQuestions.length} text="Next"/>
+            </div>
 
    
       </>
