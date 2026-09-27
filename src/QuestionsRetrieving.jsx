@@ -2,7 +2,7 @@ import { useState } from 'react'
 import quizQuestions from './questions.js' 
 import './question.css'
 
-export function QuestionsRetrieving({questionId}){
+export function QuestionsRetrieving({questionId, onAnswer}){
    //The questionId will be from the app, either set by nex and prev or set by the buttons of the questions
 
    // This line is reading the questions from the file and adding to all questins selectedIndex to track the selected one
@@ -24,6 +24,8 @@ export function QuestionsRetrieving({questionId}){
          }
          return item
       }))
+
+      if (onAnswer) onAnswer(qId, choiceIndex);
    }
 
    function questionfilter(currentId) {
