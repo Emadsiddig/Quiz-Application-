@@ -1,5 +1,5 @@
-import quizQuestions from "../questions";
-import "./selector.css";
+import quizQuestions from "./questions";
+// import "./selector.css";
 
 export default function Selector({ currentStatus = {}, activeId, onSelectQuestion }) {
   //getting status of the questions from the app.jsx

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import quizQuestions from './questions.js'
-import './question.css'
+// import './question.css'
 
 export function QuestionsRetrieving({ questionId, onAnswer }) {
    //The questionId will be from the app, either set by nex and prev or set by the buttons of the questions

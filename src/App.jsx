@@ -1,7 +1,7 @@
 import './App.css'
-import QuestionsRetrieving from './QuestionsRetrieving.jsx'
+import QuestionsRetrieving from './components/QuestionsRetrieving.jsx'
 import Selector from './components/Selector'
-import quizQuestions from './questions'
+import quizQuestions from './components/questions.js'
 import { useState } from 'react'
 import './index.css'
 
@@ -44,6 +44,7 @@ function App() {
 
   return (
     <div style={{ display: "flex", gap: "40px", padding: "24px" }}>
+
       <div>
         <QuestionsRetrieving questionId={questionId} onAnswer={handleAnswer} /><br />
         <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -51,6 +52,7 @@ function App() {
           <button style={{ width: "90px", padding: "5px", marginLeft: "10px" }} onClick={handleNext} disabled={questionId == quizQuestions.length - 1}>Next</button>
         </div>
       </div>
+
       <div>
         <div className="header" style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
           <h3> question {questionId}/{quizQuestions.length}</h3>
