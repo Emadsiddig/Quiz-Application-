@@ -2,6 +2,7 @@ import quizQuestions from "../questions";
 import "./selector.css";
 
 export default function Selector({ currentStatus = {}, activeId, onSelectQuestion }) {
+  //getting status of the questions from the app.jsx
   function getStatusClass(id) {
     const status = currentStatus[id];
     if (status === "Correct") return "correct";
