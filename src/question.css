@@ -1,0 +1,13 @@
+.green .question{
+    background-color: green;
+}
+.red .question{
+    background-color: red;
+}
+.question{
+    margin-left: 2rem;
+    margin-bottom: 4px;
+    padding: 0.5rem;
+    border: 2px solid green;
+    width: 40%;
+}
