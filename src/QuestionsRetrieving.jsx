@@ -2,12 +2,13 @@ import { useState } from 'react'
 import quizQuestions from './questions.js' 
 import './question.css'
 
-export function QuestionsRetrieving({questionId}){
+export function QuestionsRetrieving({questionId,setQuestionId}){
    //The questionId will be from the app, either set by nex and prev or set by the buttons of the questions
 
    // This line is reading the questions from the file and adding to all questins selectedIndex to track the selected one
    const [doneQuestions, setDoneQuestions] = useState(() => quizQuestions.map(q => ({ ...q, selectedIndex: null })))
    //This is the function of the question checker, which will triger on the click of the div which will be clicked
+   
    //each div will pass it's index if it get's clicked
    function questionChecker(qId, choiceIndex) {
 
@@ -65,10 +66,43 @@ export function QuestionsRetrieving({questionId}){
    }
 
    const filteredElement = questionfilter(questionId)
+
+   function nextQuestion() {
+      if (questionId < quizQuestions.length) {
+         setQuestionId(questionId + 1)
+      }
+   }
+   function previousQuestion() {
+      if (questionId > 1) {
+         setQuestionId(questionId - 1)
+      }
+   }
+
    
    return (
       <>
          {filteredElement}
+              <div className="navigation">
+
+            <button
+               onClick={previousQuestion}
+               disabled={questionId === 1}
+            >
+               Previous
+            </button>
+
+            <button
+               onClick={nextQuestion}
+               disabled={
+                  questionId === quizQuestions.length
+               }
+            >
+               Next
+            </button>
+
+         </div>
+
+   
       </>
    )
 }

@@ -9,7 +9,7 @@ function App() {
   const [questionId, setQuestionId] = useState(1)
   return (
     <>
-       <QuestionsRetrieving questionId={questionId}/>
+       <QuestionsRetrieving questionId={questionId} setQuestionId={setQuestionId}/>
       
     </>
   )
