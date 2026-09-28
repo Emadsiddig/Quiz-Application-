@@ -35,8 +35,12 @@ export function QuestionsRetrieving({ questionId, onAnswer }) {
          const hasBeenAnswered = question.selectedIndex !== null;
          return (
             <div key={question.id} className="question-container">
-               <h2>{question.id}. {question.question}</h2>
-
+               <div className="question-heading">
+                  <h2>Question {question.id}</h2>
+                  <p>{question.question}</p>
+               </div>
+      
+               
                <div className="radio-buttons">
                   {/* Mapping over the choices and keeping track of their indices using i*/}
                   {question.choices.map((choice, i) => {

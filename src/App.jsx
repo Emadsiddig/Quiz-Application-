@@ -58,9 +58,10 @@ function App() {
   return (
     <div className="page">
       <h1 className="quiz-title">Problem solving Quiz</h1>
-      <div className="quiz-layout">
+      <div className="container">
+
         {/* Questions with answers*/}
-        <div className="question-panel">
+        <div className="question-buttons">
           {showScore ? (
             <div className="quiz-completed">
               <h2>Quiz is completed</h2>
@@ -69,12 +70,12 @@ function App() {
           ) : (
             <>
               <QuestionsRetrieving questionId={questionId} onAnswer={handleAnswer} /><br />
-              <div className="nav-buttons">
-                <button className="nav-button" onClick={handlePrev} disabled={questionId == 1}>Prev</button>
+              <div className="pre-next-div">
+                <button onClick={handlePrev} disabled={questionId == 1}>Prev</button>
                 {quizCompleted ? (
-                  <button className="nav-button" onClick={() => setShowScore(true)}>Score</button>
+                  <button onClick={() => setShowScore(true)}>Score</button>
                 ) : (
-                  <button className="nav-button" onClick={handleNext} disabled={questionId == quizQuestions.length}>Next</button>
+                  <button onClick={handleNext} disabled={questionId == quizQuestions.length}>Next</button>
                 )}
               </div>
             </>
@@ -82,7 +83,7 @@ function App() {
         </div>
 
         {/* SideBar */}
-        <div className="sidebar">
+        <div className="side-bar">
           <div className="header">
             <h3> question {questionId}/{quizQuestions.length}</h3>
             <h3>Need Help ?</h3>
