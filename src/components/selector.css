@@ -1,21 +1,8 @@
-.green .question{
-    background-color: green;
-}
-.red .question{
-    background-color: red;
-}
-.question{
-    margin-left: 2rem;
-    margin-bottom: 4px;
-    padding: 0.5rem;
-    border: 2px solid green;
-    width: 40%;
-}
-
 .selector-container {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  width: 100%;
 }
 
 .question-circle {
@@ -42,7 +29,7 @@
 }
 
 .correct {
-  background-color: #3fdf47; 
+  background-color: #48e43a; 
 }
 
 .wrong {
