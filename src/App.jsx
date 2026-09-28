@@ -47,19 +47,19 @@ function App() {
   }
 
   return (
-    <div style={{ display: "flex", gap: "40px", padding: "24px" }}>
+    <div className='container'>
 
       {/* Questions with answers*/}
-      <div>
+      <div className='question-buttons'>
         <QuestionsRetrieving questionId={questionId} onAnswer={handleAnswer} /><br />
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <button style={{ width: "90px", padding: "5px" }} onClick={handlePrev} disabled={questionId == 1}>Prev</button>
-          <button style={{ width: "90px", padding: "5px", marginLeft: "10px" }} onClick={handleNext} disabled={questionId == quizQuestions.length - 1}>Next</button>
+        <div className='pre-next-div'>
+          <button  onClick={handlePrev} disabled={questionId == 1}>Prev</button>
+          <button  onClick={handleNext} disabled={questionId == quizQuestions.length - 1}>Next</button>
         </div>
       </div>
 
       {/* SideBar */}
-      <div>
+      <div className="side-bar">
         <div className="header" style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
           <h3> question {questionId}/{quizQuestions.length}</h3>
           <h3>Need Help ?</h3>
