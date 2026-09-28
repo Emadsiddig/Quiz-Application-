@@ -1,3 +1,101 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 24px;
+  gap: 24px;
+}
+
+.quiz-layout {
+  display: flex;
+  gap: 40px;
+  flex: 1;
+  align-items: flex-start;
+}
+
+.question-panel {
+  flex: 1;
+  min-width: 0;
+}
+
+.quiz-title {
+  margin-left: 300px;
+  font-size: 32px;
+}
+
+.question-panel h2 {
+  overflow-wrap: anywhere;
+}
+
+.quiz-completed p {
+  margin: 8px 0 0;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  max-width: 720px;
+}
+
+.nav-button {
+  width: 90px;
+  padding: 5px;
+}
+
+.sidebar {
+  flex: 0 0 280px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.explanation {
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .quiz-layout {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .sidebar {
+    flex: none;
+    width: 100%;
+  }
+
+  .question {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .nav-buttons {
+    max-width: none;
+  }
+
+  .header {
+    flex-wrap: wrap;
+  }
+}
+
+@media (min-width: 1100px) {
+  .page {
+    max-width: 1200px;
+    margin-inline: auto;
+  }
+}
+
 .green .question{
     background-color: green;
 }
@@ -5,11 +103,13 @@
     background-color: red;
 }
 .question{
-    margin-left: 2rem;
+    margin-left: 0;
     margin-bottom: 4px;
     padding: 0.5rem;
     border: 2px solid green;
-    width: 40%;
+    width: 100%;
+    max-width: 720px;
+    box-sizing: border-box;
 }
 
 .selector-container {

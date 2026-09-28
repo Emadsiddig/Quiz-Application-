@@ -8,9 +8,9 @@ import './index.css'
 function App() {
   const [questionId, setQuestionId] = useState(1) // container to store the current question and also to set the current question
   const [selectedAnswers, setSelectedAnswers] = useState({}) // for handling the selected question on the sider bar
+  const [showScore, setShowScore] = useState(false)
 
   // { Prev & Next FUnctionality }
-
 
   // Handle prev functionality
   const handlePrev = () => {
@@ -21,7 +21,7 @@ function App() {
 
   // Handle next functionality
   const handleNext = () => {
-    if (questionId < quizQuestions.length - 1) {
+    if (questionId < quizQuestions.length) {
       setQuestionId(questionId + 1)
     }
   }
@@ -33,6 +33,8 @@ function App() {
 
   // function that is managing the questions statuses like done with correct or incorrect or not attempted
   const currentStatus = {}
+  let answeredCount = 0
+  let correctCount = 0
   for (let i = 0; i < quizQuestions.length; i++) {
     const q = quizQuestions[i]
     const picked = selectedAnswers[q.id]
@@ -41,35 +43,64 @@ function App() {
       currentStatus[q.id] = "Not Attempted"
     } else if (picked === q.correctAnswerIndex) {
       currentStatus[q.id] = "Correct"
+      answeredCount = answeredCount + 1
+      correctCount = correctCount + 1
     } else {
       currentStatus[q.id] = "Wrong"
+      answeredCount = answeredCount + 1
     }
   }
 
+  const quizCompleted = answeredCount === quizQuestions.length
+  const currentQuestion = quizQuestions.find(q => q.id === questionId)
+  const showExplanation = !showScore && selectedAnswers[questionId] !== undefined
+
   return (
-    <div style={{ display: "flex", gap: "40px", padding: "24px" }}>
+    <div className="page">
+      <h1 className="quiz-title">Problem solving Quiz</h1>
+      <div className="quiz-layout">
+        {/* Questions with answers*/}
+        <div className="question-panel">
+          {showScore ? (
+            <div className="quiz-completed">
+              <h2>Quiz is completed</h2>
+              <p>Your score is {correctCount} out of {quizQuestions.length}.</p>
+            </div>
+          ) : (
+            <>
+              <QuestionsRetrieving questionId={questionId} onAnswer={handleAnswer} /><br />
+              <div className="nav-buttons">
+                <button className="nav-button" onClick={handlePrev} disabled={questionId == 1}>Prev</button>
+                {quizCompleted ? (
+                  <button className="nav-button" onClick={() => setShowScore(true)}>Score</button>
+                ) : (
+                  <button className="nav-button" onClick={handleNext} disabled={questionId == quizQuestions.length}>Next</button>
+                )}
+              </div>
+            </>
+          )}
+        </div>
 
-      {/* Questions with answers*/}
-      <div>
-        <QuestionsRetrieving questionId={questionId} onAnswer={handleAnswer} /><br />
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <button style={{ width: "90px", padding: "5px" }} onClick={handlePrev} disabled={questionId == 1}>Prev</button>
-          <button style={{ width: "90px", padding: "5px", marginLeft: "10px" }} onClick={handleNext} disabled={questionId == quizQuestions.length - 1}>Next</button>
+        {/* SideBar */}
+        <div className="sidebar">
+          <div className="header">
+            <h3> question {questionId}/{quizQuestions.length}</h3>
+            <h3>Need Help ?</h3>
+          </div>
+          <Selector
+            currentStatus={currentStatus}
+            activeId={questionId}
+            onSelectQuestion={setQuestionId}
+          />
         </div>
       </div>
 
-      {/* SideBar */}
-      <div>
-        <div className="header" style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
-          <h3> question {questionId}/{quizQuestions.length}</h3>
-          <h3>Need Help ?</h3>
+      {showExplanation && (
+        <div className="explanation">
+          <h3>Explanation</h3>
+          <p>{currentQuestion.explanation}</p>
         </div>
-        <Selector
-          currentStatus={currentStatus}
-          activeId={questionId}
-          onSelectQuestion={setQuestionId}
-        />
-      </div>
+      )}
     </div>
   )
 }

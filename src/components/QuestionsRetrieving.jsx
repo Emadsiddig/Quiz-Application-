@@ -61,13 +61,6 @@ export function QuestionsRetrieving({ questionId, onAnswer }) {
                      )
                   })}
                </div>
-               {/* Display Functionality -Explanation displayed after selection */}
-               {hasBeenAnswered && (
-                  <div>
-                     <h3>Explanation</h3>
-                     <p>{question.explanation}</p>
-                  </div>
-               )}
             </div>
          )
       })

@@ -16,6 +16,8 @@ The application also includes a question navigation sidebar that shows the user'
 - Incorrect answer indication
 - Explanation displayed after answering
 - Quiz progress tracking
+- Quiz title
+- Final score when every question is answered
 - Responsive and clean user interface
 
 ## Technologies Used
@@ -32,15 +34,40 @@ The application also includes a question navigation sidebar that shows the user'
 quiz-app/
 ├── src/
 │   ├── components/
-│        └──QuestionDisplay.jsx
-│        └──Selector.jsx
-│        └──QuestionsRetrieving.jsx
-│        └──questions.js
+│   │   ├── QuestionsRetrieving.jsx
+│   │   ├── Selector.jsx
+│   │   └── questions.js
 │   ├── App.jsx
 │   ├── App.css
-│   ├── question.css
-│   └── main.jsx
-│
-├── public/
+│   ├── index.css
+│   └── index.jsx
+├── index.html
 ├── package.json
 └── README.md
+```
+
+## Live app
+
+The public link goes here after the app is deployed.
+
+## Run locally
+
+You need [Node.js](https://nodejs.org/) installed. It includes npm.
+
+In this project folder, install the dependencies, then start the app:
+
+```bash
+npm install
+npm run dev
+```
+
+Open the address printed in the terminal. It is usually [http://localhost:5173](http://localhost:5173).
+
+Stop the server with `Ctrl+C` in that terminal.
+
+To check the production build instead:
+
+```bash
+npm run build
+npm run preview
+```
