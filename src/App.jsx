@@ -1,4 +1,3 @@
-import './App.css'
 import QuestionsRetrieving from './QuestionsRetrieving.jsx'
 import Selector from './components/Selector'
 import quizQuestions from './questions'
@@ -30,9 +29,9 @@ function App() {
   }
 
   return (
-    <div style={{ display: "flex", gap: "40px", padding: "24px" }}>
+    <div className='container'>
       <QuestionsRetrieving questionId={questionId} onAnswer={handleAnswer} />
-      <div>
+      <div className = "side-bar">
         <div className="header" style={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
           <h3> question {questionId}/{quizQuestions.length}</h3>
           <h3>Need Help ?</h3>
