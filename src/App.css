@@ -1,0 +1,54 @@
+.green .question{
+    background-color: green;
+}
+.red .question{
+    background-color: red;
+}
+.question{
+    margin-left: 2rem;
+    margin-bottom: 4px;
+    padding: 0.5rem;
+    border: 2px solid green;
+    width: 40%;
+}
+
+.selector-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.question-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease;
+}
+
+.question-circle:hover {
+  transform: scale(1.1);
+}
+
+.not-attempted {
+  background-color: #b8b8b8; 
+}
+
+.correct {
+  background-color: #7a99e0; 
+}
+
+.wrong {
+  background-color: #ff9797; 
+}
+
+.question-circle.active {
+  outline: 3px solid #908c8c;
+}

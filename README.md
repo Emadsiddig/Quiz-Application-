@@ -1,21 +1,46 @@
-# React + Vite
+# Quiz-Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A responsive and interactive quiz application built with React.js. The application allows users to answer multiple-choice questions, navigate between questions using **Previous** and **Next** buttons, and receive immediate feedback showing whether their selected answer is correct or incorrect.
 
-Currently, two official plugins are available:
+After answering a question, an **Explanation** section is displayed to help the user understand the answer.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The application also includes a question navigation sidebar that shows the user's progress through the quiz.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Multiple-choice quiz questions
+- Previous and Next question navigation
+- Question number navigation
+- Answer validation
+- Correct answer indication
+- Incorrect answer indication
+- Explanation displayed after answering
+- Quiz progress tracking
+- Responsive and clean user interface
 
-## Expanding the Oxlint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- **React.js** — Frontend library
+- **JavaScript (ES6+)** — Application logic
+- **HTML5** — Application structure
+- **CSS3** — Styling and responsive layout
+- **Vite** — Development and build tool
 
+## Project Structure
 
-**Janet Uwimana**
-**Niyibizi Teddy**
-**Leon chrispin**
+```text
+quiz-app/
+├── src/
+│   ├── components/
+│        └──QuestionDisplay.jsx
+│        └──Selector.jsx
+│        └──QuestionsRetrieving.jsx
+│        └──questions.js
+│   ├── App.jsx
+│   ├── App.css
+│   ├── question.css
+│   └── main.jsx
+│
+├── public/
+├── package.json
+└── README.md
