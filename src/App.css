@@ -60,6 +60,11 @@
 }
 
 @media (max-width: 768px) {
+  .quiz-title {
+    margin-left: 0;
+    text-align: center;
+  }
+
   .page {
     padding: 16px;
     gap: 16px;
