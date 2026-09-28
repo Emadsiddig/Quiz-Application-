@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import quizQuestions from './questions.js' 
-import './question.css'
+import quizQuestions from './questions.js'
+// import './question.css'
 
-export function QuestionsRetrieving({questionId, onAnswer}){
+export function QuestionsRetrieving({ questionId, onAnswer }) {
    //The questionId will be from the app, either set by nex and prev or set by the buttons of the questions
 
    // This line is reading the questions from the file and adding to all questins selectedIndex to track the selected one
@@ -11,7 +11,7 @@ export function QuestionsRetrieving({questionId, onAnswer}){
    //each div will pass it's index if it get's clicked
    function questionChecker(qId, choiceIndex) {
 
-   //This line is finding the item which was clicked
+      //This line is finding the item which was clicked
       const currentQuestion = doneQuestions.find(item => item.id === qId);
 
       //whenever the selectedIndex has a value we won't do anything, it will imediately return
@@ -35,18 +35,18 @@ export function QuestionsRetrieving({questionId, onAnswer}){
          const hasBeenAnswered = question.selectedIndex !== null;
          return (
             <div key={question.id} className="question-container">
-               <h2>{question.question}</h2>
-               
+               <h2>{question.id}. {question.question}</h2>
+
                <div className="radio-buttons">
-               {/* Mapping over the choices and keeping track of their indices using i*/}
+                  {/* Mapping over the choices and keeping track of their indices using i*/}
                   {question.choices.map((choice, i) => {
                      let statusClass = "";
                      // This will only run if either choices were clicked
                      if (hasBeenAnswered) {
                         if (question.correctAnswerIndex === i) {
-                           statusClass = "green disabled"; 
+                           statusClass = "green disabled";
                         } else if (question.selectedIndex === i) {
-                           statusClass = "red disabled"; 
+                           statusClass = "red disabled";
                         } else {
                            statusClass = "disabled";
                         }
@@ -61,13 +61,20 @@ export function QuestionsRetrieving({questionId, onAnswer}){
                      )
                   })}
                </div>
-            </div> 
-            )
-         })
+               {/* Display Functionality -Explanation displayed after selection */}
+               {hasBeenAnswered && (
+                  <div>
+                     <h3>Explanation</h3>
+                     <p>{question.explanation}</p>
+                  </div>
+               )}
+            </div>
+         )
+      })
    }
 
    const filteredElement = questionfilter(questionId)
-   
+
    return (
       <>
          {filteredElement}
