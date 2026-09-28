@@ -46,9 +46,9 @@ quiz-app/
 └── README.md
 ```
 
-## Live app
+## Live demo
 
-The public link goes here after the app is deployed.
+[https://guizapplication.netlify.app/](https://guizapplication.netlify.app/)
 
 ## Run locally
 
